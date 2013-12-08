@@ -8,6 +8,7 @@ namespace GameSantaTycoon {
 
 		public string Name;
 		public int[] RequiredResources;
+		public int[] Stats;
 		public int RequiredTime;
 
 		public string Quote;

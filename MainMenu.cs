@@ -14,7 +14,7 @@ namespace GameSantaTycoon {
 		}
 
 		private void buttonTestKidGift_Click( object sender, EventArgs e ) {
-
+			new KidGiftWindow().Show();
 		}
 	}
 }

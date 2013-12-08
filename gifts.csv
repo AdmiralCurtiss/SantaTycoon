@@ -1,8 +1,15 @@
-﻿#Name				;elf;elec;scrap;money;food;plast;time; quote like;						 like;				  dislike
-Ouya				;  1;   0;   20;    0;   0;    0;   2; Wishes gaming came back to the TV;Pointless gadgets;   Graphics and Framerates
-Bitcoin				;  0;  50;    0;    0;   0;    0;  10; Is a Captain of the Industry;     Wasting Electricity; Economics
-Video Game (Shooter);  1;   2;    0;   70;   0;    0;   1; -;								 -;	-
-Candy Cane			;  1;   0;    1;    0;   5;    0;   1; -;								 Candy; -
-Basic Toy			;  2;   5;   10;    5;   0;   25;   5; Just wants something to play with;-;-
-1000 Piece Puzzle	;
-Sweater				;
+﻿#Name				 ;elf;money;elec;scrap;plast;paper;time;   age;  social;creativ
+#					 ;                                            play   learn
+Video Game (Shooter) ;  1;   70;   2;    0;    0;    0;   1;   14;  4;  2;  0;  1
+Video Game (Crafting);  1;   30;   2;    0;    0;    0;   1;   15; 10;  4;  0; 10
+Basic Toy			 ;  2;    0;   5;   10;   25;    2;   5;    3;  9;  4;  0;  8
+1000 Piece Puzzle	 ;  5;    0;   1;    3;    0;   35;  10;   16;  8;  6;  0;  4
+Sweater				 ;
+Action Figure		 ;
+Rubik’s Cube		 ;
+Board Game			 ;
+Book				 ;
+
+
+#Ouya				;  1;   0;   20;    0;   0;    0;    0;   2;   
+#Bitcoin			;  0;  50;    0;    0;   0;    0;    0;  10;   
