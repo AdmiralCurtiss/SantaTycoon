@@ -10,6 +10,8 @@ namespace GameSantaTycoon {
 		/// </summary>
 		[STAThread]
 		static void Main() {
+			GameManager.Game = new GameManager();
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault( false );
 			Application.Run( new MainMenu() );

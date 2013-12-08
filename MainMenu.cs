@@ -12,5 +12,9 @@ namespace GameSantaTycoon {
 		public MainMenu() {
 			InitializeComponent();
 		}
+
+		private void buttonTestKidGift_Click( object sender, EventArgs e ) {
+
+		}
 	}
 }
