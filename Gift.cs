@@ -11,6 +11,8 @@ namespace GameSantaTycoon {
 		public int[] Stats;
 		public int RequiredTime;
 
+		public int OnHandCount;
+
 		public string Quote;
 		public string PersonalityLike;
 		public string PersonalityDislike;

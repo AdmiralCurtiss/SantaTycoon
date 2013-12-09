@@ -33,7 +33,11 @@ namespace GameSantaTycoon {
 
 			Resources[(int)ResourceTypes.Elf] = 20; // already start with some elves
 			FreeElves = 20;
-			Resources[(int)ResourceTypes.Money] = 1000; // and cash
+			Resources[(int)ResourceTypes.Money] = 500; // and cash
+			// and a few other resources
+			for ( int i = 2; i < ResourceNames.Length; ++i ) {
+				Resources[i] = 50;
+			}
 			Day = 1;
 
 			LoadGifts();
@@ -112,6 +116,25 @@ namespace GameSantaTycoon {
 		public void UnassignElf( int ResourceToAssignTo ) {
 			if ( AssignedElves[ResourceToAssignTo] > 0 ) {
 				AssignedElves[ResourceToAssignTo]--;
+			}
+		}
+
+		public void MakeGift( Gift g ) {
+			// check if we have enough resources
+			if ( g.RequiredResources[(int)ResourceTypes.Elf] > FreeElves ) {
+				return;
+			}
+			for ( int i = 1; i < g.RequiredResources.Length; ++i ) {
+				if ( g.RequiredResources[i] > Resources[i] ) {
+					return;
+				}
+			}
+
+			// if we reach here we have enough, subtract and create gift
+			g.OnHandCount++;
+			FreeElves -= g.RequiredResources[(int)ResourceTypes.Elf];
+			for ( int i = 1; i < g.RequiredResources.Length; ++i ) {
+				Resources[i] -= g.RequiredResources[i];
 			}
 		}
 	}

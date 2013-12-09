@@ -91,6 +91,8 @@ namespace GameSantaTycoon {
 			);
 			this.Controls.Add( fireButton );
 
+			this.panel1.Controls.Add( new MakeGiftsPanel( this ) );
+
 			this.labelDay.SendToBack();
 
 			UpdateDisplay();
@@ -108,7 +110,7 @@ namespace GameSantaTycoon {
 		}
 
 		private void buttonTestKidGift_Click( object sender, EventArgs e ) {
-			new KidGiftWindow().Show();
+			new KidGiftWindow().ShowDialog();
 		}
 
 		private void buttonNextDay_Click( object sender, EventArgs e ) {
