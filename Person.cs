@@ -16,6 +16,8 @@ namespace GameSantaTycoon {
 			for ( int i = 1; i < GameManager.Game.StatsNames.Length; ++i ) {
 				Stats[i] = Rng.Next( 0, 11 );
 			}
+
+			Name = GameManager.Game.Names[Rng.Next( 0, GameManager.Game.Names.Length )];
 		}
 	}
 }

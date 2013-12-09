@@ -21,6 +21,7 @@ namespace GameSantaTycoon {
 		public string[] ResourceNames = { "Elves", "Money", "Electricity", "Scrap", "Plastic", "Paper" };
 		public string[] StatsNames = { "Age", "Playfulness", "Social Interaction", "Learning Aptitude", "Creativity" };
 		public List<Gift> Gifts;
+		public string[] Names;
 
 		public int[] Resources;
 		public int Day;
@@ -41,6 +42,11 @@ namespace GameSantaTycoon {
 			Day = 1;
 
 			LoadGifts();
+			LoadNames();
+		}
+
+		private void LoadNames() {
+			Names = System.IO.File.ReadAllLines( "names.lst" );						
 		}
 
 		private void LoadGifts() {
@@ -76,14 +82,14 @@ namespace GameSantaTycoon {
 				Resources[(int)ResourceTypes.Money]--;
 				Resources[(int)ResourceTypes.Elf]++;
 			} else {
-				// inform the player, no money
+				DisplayMessageToUser( "You do not have enough money to hire another elf." );
 			}
 		}
 		public void FireElf() {
 			if ( Day % 7 == 0 ) {
 				Resources[(int)ResourceTypes.Elf]--;
 			} else {
-				// inform the player, can only fire on sunday
+				DisplayMessageToUser( "Due to the Fair Elf Working Law passed in 1994, you can only fire elves on Sundays (day number divisible by 7)." );
 			}
 		}
 
