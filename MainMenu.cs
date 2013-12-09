@@ -11,6 +11,7 @@ namespace GameSantaTycoon {
 	public partial class MainMenu : Form {
 		private Label[] labelsResources;
 		private Label[] labelsAssignedElves;
+		private MakeGiftsPanel GiftPanel;
 
 		public MainMenu() {
 			InitializeComponent();
@@ -91,7 +92,8 @@ namespace GameSantaTycoon {
 			);
 			this.Controls.Add( fireButton );
 
-			this.panel1.Controls.Add( new MakeGiftsPanel( this ) );
+			GiftPanel = new MakeGiftsPanel( this );
+			this.panel1.Controls.Add( GiftPanel );
 
 			this.labelDay.SendToBack();
 
@@ -106,6 +108,12 @@ namespace GameSantaTycoon {
 			labelsAssignedElves[0].Text = "Free\n" + GameManager.Game.FreeElves.ToString( "N0" );
 			for ( int i = 2; i < GameManager.Game.ResourceNames.Length; ++i ) {
 				labelsAssignedElves[i].Text = "Assigned\n" + GameManager.Game.AssignedElves[i].ToString( "N0" );
+			}
+
+			// gift on hand count
+			for ( int i = 0; i < GameManager.Game.Gifts.Count; ++i ) {
+				Gift g = GameManager.Game.Gifts[i];
+				GiftPanel.labelsGifts[i].Text = g.OnHandCount.ToString( "N0" );
 			}
 		}
 
