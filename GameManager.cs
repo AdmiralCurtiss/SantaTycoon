@@ -5,6 +5,17 @@ using System.Text;
 
 namespace GameSantaTycoon {
 	public class GameManager {
+
+		public enum ResourceTypes {
+			Elf = 0,
+			Money = 1,
+			Elec = 2,
+			Scrap = 3,
+			Plastic = 4,
+			Paper = 5,
+			Count
+		}
+
 		public static GameManager Game;
 
 		public string[] ResourceNames = { "Elves", "Money", "Electricity", "Scrap", "Plastic", "Paper" };
@@ -20,9 +31,9 @@ namespace GameSantaTycoon {
 			Resources = new int[ResourceNames.Length];
 			AssignedElves = new int[ResourceNames.Length];
 
-			Resources[0] = 20; // already start with some elves
+			Resources[(int)ResourceTypes.Elf] = 20; // already start with some elves
 			FreeElves = 20;
-			Resources[1] = 1000; // and cash
+			Resources[(int)ResourceTypes.Money] = 1000; // and cash
 			Day = 1;
 
 			LoadGifts();
@@ -57,18 +68,30 @@ namespace GameSantaTycoon {
 		}
 
 		public void HireElf() {
-			Resources[0]++;
+			if ( Resources[(int)ResourceTypes.Money] > 0 ) {
+				Resources[(int)ResourceTypes.Money]--;
+				Resources[(int)ResourceTypes.Elf]++;
+			} else {
+				// inform the player, no money
+			}
+		}
+		public void FireElf() {
+			if ( Day % 7 == 0 ) {
+				Resources[(int)ResourceTypes.Elf]--;
+			} else {
+				// inform the player, can only fire on sunday
+			}
 		}
 
 		public void AdvanceDay() {
 			++Day;
 
-			Resources[1] -= Resources[0]; // pay elves
-			if ( Resources[1] < 0 ) {
+			Resources[(int)ResourceTypes.Money] -= Resources[(int)ResourceTypes.Elf]; // pay elves
+			if ( Resources[(int)ResourceTypes.Money] < 0 ) {
 				// OUT OF MONEY, GAME OVER
 			}
 
-			FreeElves = Resources[0]; // reset elves available for work
+			FreeElves = Resources[(int)ResourceTypes.Elf]; // reset elves available for work
 			// and subtract all elves assigned to material production
 			for ( int i = 0; i < AssignedElves.Length; ++i ) {
 				FreeElves -= AssignedElves[i];

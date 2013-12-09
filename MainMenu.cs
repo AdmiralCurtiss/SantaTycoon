@@ -65,6 +65,31 @@ namespace GameSantaTycoon {
 				this.Controls.Add( b );
 			}
 
+			// hire button
+			Button hireButton = new Button();
+			hireButton.Location = new System.Drawing.Point( 20, 69 );
+			hireButton.Size = new System.Drawing.Size( 55, 23 );
+			hireButton.Text = "Hire";
+			hireButton.Click += new System.EventHandler(
+				delegate( object o, EventArgs arg ) {
+					GameManager.Game.HireElf();
+					UpdateDisplay();
+				}
+			);
+			this.Controls.Add( hireButton );
+
+			// fire button
+			Button fireButton = new Button();
+			fireButton.Location = new System.Drawing.Point( 20, 69 + 23 );
+			fireButton.Size = new System.Drawing.Size( 55, 23 );
+			fireButton.Text = "Fire";
+			fireButton.Click += new System.EventHandler(
+				delegate( object o, EventArgs arg ) {
+					GameManager.Game.FireElf();
+					UpdateDisplay();
+				}
+			);
+			this.Controls.Add( fireButton );
 
 			this.labelDay.SendToBack();
 
