@@ -27,7 +27,7 @@ namespace GameSantaTycoon {
 					break;
 				case 11:
 					GameManager.Game.DisplayMessageToUser( "One of your workers donates some spare materials to you! Lucky!" );
-					GameManager.Game.Resources[(int)GameManager.ResourceTypes.Paper] += 25;
+					GameManager.Game.Resources[(int)GameManager.ResourceTypes.Wood] += 25;
 					GameManager.Game.Resources[(int)GameManager.ResourceTypes.Plastic] += 25;
 					GameManager.Game.Resources[(int)GameManager.ResourceTypes.Scrap] += 25;
 					break;

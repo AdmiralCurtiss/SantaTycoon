@@ -1,15 +1,23 @@
-﻿#Name				 ;elf;money;elec;scrap;plast;paper;time;   age;  social;creativ
+﻿#Name				 ;elf;money;elec;scrap;plast; wood;time;   age;  social;creativ
 #					 ;                                            play   learn
-Video Game (Shooter) ;  1;   70;   2;    0;    0;    0;   1;   14;  4;  2;  0;  1
-Video Game (Crafting);  1;   30;   2;    0;    0;    0;   1;   15; 10;  4;  0; 10
-Basic Toy			 ;  2;    0;   5;   10;   25;    2;   5;    3;  9;  4;  0;  8
-1000 Piece Puzzle	 ;  5;    0;   1;    3;    0;   35;  10;   16;  8;  6;  0;  4
-Sweater				 ;
-Action Figure		 ;
-Rubik’s Cube		 ;
-Board Game			 ;
-Book				 ;
-
-
-#Ouya				;  1;   0;   20;    0;   0;    0;    0;   2;   
-#Bitcoin			;  0;  50;    0;    0;   0;    0;    0;  10;   
+Basic Toy			 ;  2;   10;   5;   10;   25;    2;   5;    3;  9;  4;  5;  8
+Plush Toy			 ;  2;    5;   0;    0;    0;    5;   0;    4;  6;  1;  4;  5
+Candy				 ;  1;    8;   0;    0;    0;    0;   0;    4;  3;  0;  0;  0
+Building Blocks		 ;  3;   15;   0;    4;    4;   20;   0;    5;  8;  3;  8; 10
+Doll House			 ;  4;   20;   4;    8;   16;   24;   0;    5;  8;  2;  2;  7
+Board Game			 ;  4;   15;   0;    8;    8;   24;   0;    8; 10; 10;  7;  7
+Silly Costume		 ;  3;    5;   2;    5;    0;   30;   0;    9;  6; 10;  3;  8
+Action Figure		 ;  2;   15;  10;    3;   45;   10;   0;   10;  7;  5;  3;  5
+Trip to Theme Park	 ;  3;   50;  10;    0;    0;    0;   0;   11; 10;  9;  2;  2
+Guitar				 ;  2;   10;   3;   10;    2;   20;   0;   12;  3;  7; 10;  7
+Handheld Game System ;  6;   50;  20;   15;    5;    5;   0;   13;  8;  6;  4;  5
+Video Game (Shooter) ;  1;   70;   2;    0;    0;    0;   1;   14;  4;  2;  1;  1
+Video Game (Crafting);  1;   30;   2;    0;    0;    0;   1;   15; 10;  4;  8; 10
+Book				 ;  3;   10;   5;    0;    0;   24;   0;   15;  2;  2; 10;  2
+1000 Piece Puzzle	 ;  5;   18;   1;    3;    0;   35;  10;   16;  8;  6;  7;  4
+Popular Figurine	 ;  4;   15;   0;    4;   20;    2;   0;   17;  0;  0;  0;  0
+Rubik’s Cube		 ;  1;    5;   0;    2;   20;   10;   0;   18;  5;  3; 10;  3
+Cash				 ;  0;   80;   0;    0;    0;    0;   0;   19;  1;  1;  4;  2
+Sweater				 ;  1;   10;   0;    0;    0;    4;   3;   20;  0;  0;  0;  0
+Ouya				 ;  0;  100;  50;  100;   10;    0;   0;   24;  0;  0;  0; 10
+Bitcoins			 ;  0;   10; 150;    0;    0;    0;   0;   25;  0;  0;  0;  0

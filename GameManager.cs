@@ -12,13 +12,13 @@ namespace GameSantaTycoon {
 			Elec = 2,
 			Scrap = 3,
 			Plastic = 4,
-			Paper = 5,
+			Wood = 5,
 			Count
 		}
 
 		public static GameManager Game;
 
-		public string[] ResourceNames = { "Elves", "Money", "Electricity", "Scrap", "Plastic", "Paper" };
+		public string[] ResourceNames = { "Elves", "Money", "Electricity", "Scrap", "Plastic", "Wood" };
 		public string[] StatsNames = { "Age", "Playfulness", "Social Interaction", "Learning Aptitude", "Creativity" };
 		public List<Gift> Gifts;
 		public string[] Names;
@@ -171,6 +171,7 @@ namespace GameSantaTycoon {
 			for ( int i = 0; i < p.Stats.Length; ++i ) {
 				Score += Math.Abs( g.Stats[i] - p.Stats[i] );
 			}
+			Score = ( Score * 4 ) / 5;
 
 			int Earn = 0;
 			if ( Score == 0 ) {
