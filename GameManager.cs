@@ -22,6 +22,7 @@ namespace GameSantaTycoon {
 		public string[] StatsNames = { "Age", "Playfulness", "Social Interaction", "Learning Aptitude", "Creativity" };
 		public List<Gift> Gifts;
 		public string[] Names;
+		public static Random Rng = new Random();
 
 		public int[] Resources;
 		public int Day;
@@ -108,6 +109,8 @@ namespace GameSantaTycoon {
 			for ( int i = 0; i < AssignedElves.Length; ++i ) {
 				Resources[i] += AssignedElves[i] * 10;
 			}
+
+			RandomEvents.RollForRandomEvent();
 		}
 
 		public void AssignElf( int ResourceToAssignTo ) {

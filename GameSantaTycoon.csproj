@@ -78,6 +78,8 @@
     <Compile Include="MakeGiftsPanel.Designer.cs">
       <DependentUpon>MakeGiftsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="RandomEvents.cs" />
+    <Compile Include="RandomEventSpecialMessages.cs" />
     <EmbeddedResource Include="GiveGiftPanel.resx">
       <DependentUpon>GiveGiftPanel.cs</DependentUpon>
     </EmbeddedResource>

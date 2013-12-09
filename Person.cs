@@ -6,18 +6,16 @@ using System.Text;
 namespace GameSantaTycoon {
 	public class Person {
 		public int[] Stats;
-		public static Random Rng = new Random();
-
 		public string Name = "None";
 
 		public Person() {
 			Stats = new int[GameManager.Game.StatsNames.Length];
-			Stats[0] = Rng.Next( 3, 19 );
+			Stats[0] = GameManager.Rng.Next( 3, 19 );
 			for ( int i = 1; i < GameManager.Game.StatsNames.Length; ++i ) {
-				Stats[i] = Rng.Next( 0, 11 );
+				Stats[i] = GameManager.Rng.Next( 0, 11 );
 			}
 
-			Name = GameManager.Game.Names[Rng.Next( 0, GameManager.Game.Names.Length )];
+			Name = GameManager.Game.Names[GameManager.Rng.Next( 0, GameManager.Game.Names.Length )];
 		}
 	}
 }
