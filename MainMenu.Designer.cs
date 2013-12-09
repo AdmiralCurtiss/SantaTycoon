@@ -93,7 +93,7 @@
 			this.Controls.Add(this.buttonTestKidGift);
 			this.Controls.Add(this.labelDay);
 			this.Name = "MainMenu";
-			this.Text = "Form1";
+			this.Text = "Santa Tycoon";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

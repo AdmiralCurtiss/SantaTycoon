@@ -119,6 +119,7 @@ namespace GameSantaTycoon {
 
 		private void buttonTestKidGift_Click( object sender, EventArgs e ) {
 			new KidGiftWindow().ShowDialog();
+			UpdateDisplay();
 		}
 
 		private void buttonNextDay_Click( object sender, EventArgs e ) {

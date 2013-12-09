@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace GameSantaTycoon {
 	public partial class GiveGiftPanel : UserControl {
-		public GiveGiftPanel() {
+		public GiveGiftPanel(Form parent, Person p) {
 			InitializeComponent();
 
 			int j = 0;
@@ -32,7 +32,8 @@ namespace GameSantaTycoon {
 					b.Text = g.Name;
 					b.Click += new System.EventHandler(
 						delegate( object o, EventArgs arg ) {
-
+							GameManager.Game.GiftPresentAndGetReward( g, p );
+							parent.Close();
 						}
 					);
 					this.Controls.Add( b );

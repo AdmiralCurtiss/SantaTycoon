@@ -90,7 +90,7 @@ namespace GameSantaTycoon {
 		public void AdvanceDay() {
 			++Day;
 
-			SubtractMoneyForced(Resources[(int)ResourceTypes.Elf]); 
+			SubtractMoneyForced( Resources[(int)ResourceTypes.Elf] );
 
 			FreeElves = Resources[(int)ResourceTypes.Elf]; // reset elves available for work
 			// and subtract all elves assigned to material production
@@ -138,8 +138,45 @@ namespace GameSantaTycoon {
 		public void SubtractMoneyForced( int Money ) {
 			Resources[(int)ResourceTypes.Money] -= Money;
 			if ( Resources[(int)ResourceTypes.Money] < 0 ) {
-				// OUT OF MONEY, GAME OVER
+				DisplayMessageToUser( "Unfortunately, you ran out of money!\n-- GAME OVER --" );
+				Environment.Exit( 0 ); // kinda brutal but oh well, need to be fast here
 			}
+		}
+
+		public void GiftPresentAndGetReward( Gift g, Person p ) {
+			--g.OnHandCount;
+
+			// calculate score
+			int Score = 0;
+			for ( int i = 0; i < p.Stats.Length; ++i ) {
+				Score += Math.Abs( g.Stats[i] - p.Stats[i] );
+			}
+
+			int Earn = 0;
+			if ( Score == 0 ) {
+				Earn = 250;
+				DisplayMessageToUser( "Perfect gift!\nYou earn 250 Money." );
+			} else if ( Score < 5 ) {
+				Earn = 200 + ( 5 - Score ) * 10;
+				DisplayMessageToUser( "Great gift!\nYou earn " + Earn + " Money." );
+			} else if ( Score < 10 ) {
+				Earn = 100 + ( 10 - Score ) * 10;
+				DisplayMessageToUser( "Good gift!\nYou earn " + Earn + " Money." );
+			} else if ( Score < 20 ) {
+				Earn = 20 + ( 20 - Score ) * 8;
+				DisplayMessageToUser( "Alright gift.\nYou earn " + Earn + " Money." );
+			} else if ( Score < 30 ) {
+				Earn = ( 30 - Score ) * 4;
+				DisplayMessageToUser( "Okay gift.\nYou earn " + Earn + " Money." );
+			} else {
+				DisplayMessageToUser( "Bad gift.\nYou earn nothing." );
+			}
+
+			Resources[(int)ResourceTypes.Money] += Earn;
+		}
+
+		public void DisplayMessageToUser( string s ) {
+			System.Windows.Forms.MessageBox.Show( s );	
 		}
 	}
 }

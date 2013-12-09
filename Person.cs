@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace GameSantaTycoon {
-	class Person {
+	public class Person {
 		public int[] Stats;
 		public static Random Rng = new Random();
 

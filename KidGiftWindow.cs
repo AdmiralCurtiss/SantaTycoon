@@ -36,7 +36,7 @@ namespace GameSantaTycoon {
 				this.Controls.Add( p );
 			}
 
-			this.panel1.Controls.Add( new GiveGiftPanel() );
+			this.panel1.Controls.Add( new GiveGiftPanel( this, Kid ) );
 
 			this.ResumeLayout( false );
 			this.PerformLayout();
