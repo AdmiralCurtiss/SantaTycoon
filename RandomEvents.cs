@@ -6,7 +6,7 @@ using System.Text;
 namespace GameSantaTycoon {
 	public static class RandomEvents {
 		public static void RollForRandomEvent() {
-			GameManager.Game.DisplayMessageToUser( "Rolling event..." );
+			//GameManager.Game.DisplayMessageToUser( "Rolling event..." );
 
 			int rand = GameManager.Rng.Next( 0, 128 );
 

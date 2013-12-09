@@ -28,6 +28,7 @@ namespace GameSantaTycoon {
 		public int Day;
 		public int FreeElves;
 		public int[] AssignedElves;
+		public bool DidAnythingToday;
 
 		public GameManager() {
 			Resources = new int[ResourceNames.Length];
@@ -41,6 +42,7 @@ namespace GameSantaTycoon {
 				Resources[i] = 50;
 			}
 			Day = 1;
+			DidAnythingToday = false;
 
 			LoadGifts();
 			LoadNames();
@@ -82,6 +84,7 @@ namespace GameSantaTycoon {
 			if ( Resources[(int)ResourceTypes.Money] > 0 ) {
 				Resources[(int)ResourceTypes.Money]--;
 				Resources[(int)ResourceTypes.Elf]++;
+				DidAnythingToday = true;
 			} else {
 				DisplayMessageToUser( "You do not have enough money to hire another elf." );
 			}
@@ -89,6 +92,7 @@ namespace GameSantaTycoon {
 		public void FireElf() {
 			if ( Day % 7 == 0 ) {
 				Resources[(int)ResourceTypes.Elf]--;
+				DidAnythingToday = true;
 			} else {
 				DisplayMessageToUser( "Due to the Fair Elf Working Law passed in 1994, you can only fire elves on Sundays (day number divisible by 7)." );
 			}
@@ -110,18 +114,24 @@ namespace GameSantaTycoon {
 				Resources[i] += AssignedElves[i] * 10;
 			}
 
-			RandomEvents.RollForRandomEvent();
+			if ( DidAnythingToday ) {
+				RandomEvents.RollForRandomEvent();
+			}
+
+			DidAnythingToday = false;
 		}
 
 		public void AssignElf( int ResourceToAssignTo ) {
 			if ( FreeElves > 0 ) {
 				FreeElves--;
 				AssignedElves[ResourceToAssignTo]++;
+				DidAnythingToday = true;
 			}
 		}
 		public void UnassignElf( int ResourceToAssignTo ) {
 			if ( AssignedElves[ResourceToAssignTo] > 0 ) {
 				AssignedElves[ResourceToAssignTo]--;
+				DidAnythingToday = true;
 			}
 		}
 
@@ -137,6 +147,7 @@ namespace GameSantaTycoon {
 			}
 
 			// if we reach here we have enough, subtract and create gift
+			DidAnythingToday = true;
 			g.OnHandCount++;
 			FreeElves -= g.RequiredResources[(int)ResourceTypes.Elf];
 			for ( int i = 1; i < g.RequiredResources.Length; ++i ) {
@@ -182,6 +193,7 @@ namespace GameSantaTycoon {
 			}
 
 			Resources[(int)ResourceTypes.Money] += Earn;
+			DidAnythingToday = true;
 		}
 
 		public void DisplayMessageToUser( string s ) {
