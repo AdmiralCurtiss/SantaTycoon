@@ -90,10 +90,7 @@ namespace GameSantaTycoon {
 		public void AdvanceDay() {
 			++Day;
 
-			Resources[(int)ResourceTypes.Money] -= Resources[(int)ResourceTypes.Elf]; // pay elves
-			if ( Resources[(int)ResourceTypes.Money] < 0 ) {
-				// OUT OF MONEY, GAME OVER
-			}
+			SubtractMoneyForced(Resources[(int)ResourceTypes.Elf]); 
 
 			FreeElves = Resources[(int)ResourceTypes.Elf]; // reset elves available for work
 			// and subtract all elves assigned to material production
@@ -135,6 +132,13 @@ namespace GameSantaTycoon {
 			FreeElves -= g.RequiredResources[(int)ResourceTypes.Elf];
 			for ( int i = 1; i < g.RequiredResources.Length; ++i ) {
 				Resources[i] -= g.RequiredResources[i];
+			}
+		}
+
+		public void SubtractMoneyForced( int Money ) {
+			Resources[(int)ResourceTypes.Money] -= Money;
+			if ( Resources[(int)ResourceTypes.Money] < 0 ) {
+				// OUT OF MONEY, GAME OVER
 			}
 		}
 	}

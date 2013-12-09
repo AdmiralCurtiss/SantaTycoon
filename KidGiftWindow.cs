@@ -41,5 +41,10 @@ namespace GameSantaTycoon {
 			this.ResumeLayout( false );
 			this.PerformLayout();
 		}
+
+		private void button1_Click( object sender, EventArgs e ) {
+			this.Close();
+			GameManager.Game.SubtractMoneyForced( 10 );
+		}
 	}
 }
