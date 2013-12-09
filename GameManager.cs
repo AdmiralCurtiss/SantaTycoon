@@ -9,15 +9,21 @@ namespace GameSantaTycoon {
 
 		public string[] ResourceNames = { "Elves", "Money", "Electricity", "Scrap", "Plastic", "Paper" };
 		public string[] StatsNames = { "Age", "Playfulness", "Social Interaction", "Learning Aptitude", "Creativity" };
-		public int[] Resources;
-
 		public List<Gift> Gifts;
 
+		public int[] Resources;
+		public int Day;
+		public int FreeElves;
+		public int[] AssignedElves;
 
 		public GameManager() {
 			Resources = new int[ResourceNames.Length];
+			AssignedElves = new int[ResourceNames.Length];
+
 			Resources[0] = 20; // already start with some elves
+			FreeElves = 20;
 			Resources[1] = 1000; // and cash
+			Day = 1;
 
 			LoadGifts();
 		}
@@ -48,6 +54,42 @@ namespace GameSantaTycoon {
 			}
 
 			return;
+		}
+
+		public void HireElf() {
+			Resources[0]++;
+		}
+
+		public void AdvanceDay() {
+			++Day;
+
+			Resources[1] -= Resources[0]; // pay elves
+			if ( Resources[1] < 0 ) {
+				// OUT OF MONEY, GAME OVER
+			}
+
+			FreeElves = Resources[0]; // reset elves available for work
+			// and subtract all elves assigned to material production
+			for ( int i = 0; i < AssignedElves.Length; ++i ) {
+				FreeElves -= AssignedElves[i];
+			}
+
+			// then add resources from assigned elves
+			for ( int i = 0; i < AssignedElves.Length; ++i ) {
+				Resources[i] += AssignedElves[i] * 10;
+			}
+		}
+
+		public void AssignElf( int ResourceToAssignTo ) {
+			if ( FreeElves > 0 ) {
+				FreeElves--;
+				AssignedElves[ResourceToAssignTo]++;
+			}
+		}
+		public void UnassignElf( int ResourceToAssignTo ) {
+			if ( AssignedElves[ResourceToAssignTo] > 0 ) {
+				AssignedElves[ResourceToAssignTo]--;
+			}
 		}
 	}
 }
