@@ -22,7 +22,7 @@ namespace GameSantaTycoon {
 			// stats
 			for ( int i = 1; i < Kid.Stats.Length; ++i ) {
 				Label l = new Label();
-				l.Location = new System.Drawing.Point( 13, 30 + 20*i );
+				l.Location = new System.Drawing.Point( 13, 30 + 20 * i );
 				l.Size = new System.Drawing.Size( 135, 20 );
 				l.Text = GameManager.Game.StatsNames[i] + ": ";// +Kid.Stats[i];
 				this.Controls.Add( l );
@@ -35,6 +35,9 @@ namespace GameSantaTycoon {
 				p.Value = Kid.Stats[i];
 				this.Controls.Add( p );
 			}
+
+			this.panel1.Controls.Add( new GiveGiftPanel() );
+
 			this.ResumeLayout( false );
 			this.PerformLayout();
 		}

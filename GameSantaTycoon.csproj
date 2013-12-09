@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="GameManager.cs" />
     <Compile Include="Gift.cs" />
+    <Compile Include="GiveGiftPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GiveGiftPanel.Designer.cs">
+      <DependentUpon>GiveGiftPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="KidGiftWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="MakeGiftsPanel.Designer.cs">
       <DependentUpon>MakeGiftsPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GiveGiftPanel.resx">
+      <DependentUpon>GiveGiftPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KidGiftWindow.resx">
       <DependentUpon>KidGiftWindow.cs</DependentUpon>
     </EmbeddedResource>
